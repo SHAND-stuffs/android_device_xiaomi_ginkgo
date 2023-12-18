@@ -9,7 +9,7 @@ BOARD_VENDOR := xiaomi
 DEVICE_PATH := device/xiaomi/ginkgo
 COMMON_PATH := device/qcom/common
 
-# Hacks
+# Build
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
@@ -50,7 +50,6 @@ TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
-DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/configs/hidl/device_framework_compatibility_matrix.xml
 
 ODM_MANIFEST_SKUS += willow
@@ -74,6 +73,7 @@ BOARD_KERNEL_CMDLINE += kpti=off
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_APPEND_DTB := true
 KERNEL_SD_LLVM_SUPPORT := true
+TARGET_KERNEL_SOURCE := kernel/xiaomi/ginkgo
 KERNEL_DEFCONFIG  := vendor/ginkgo-perf_defconfig
 
 # Lights

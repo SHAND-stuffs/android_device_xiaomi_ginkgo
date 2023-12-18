@@ -9,12 +9,6 @@
 $(call inherit-product, vendor/xiaomi/ginkgo/ginkgo-vendor.mk)
 
 # Audio
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@4.0-impl \
-    android.hardware.audio@7.0-impl \
-    android.hardware.audio.effect@7.0-impl
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/configs/audio/audio_io_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_io_policy.conf \
@@ -57,16 +51,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 $(call inherit-product, vendor/miuicamera/config.mk)
 
 PRODUCT_PACKAGES += \
-    android.frameworks.sensorservice@1.0 \
-    android.frameworks.sensorservice@1.0.vendor \
     android.frameworks.displayservice@1.0.vendor \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     android.hidl.memory.block@1.0.vendor \
     vendor.qti.hardware.camera.device@1.0.vendor
-
-PRODUCT_PACKAGES += \
-    libpiex_shim
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -112,16 +101,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera \
     persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera
 
-# Charger
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.charger.enable_suspend=true
-
 # Display
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-
-PRODUCT_PACKAGES += \
-    disable_configstore
 
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.sf.color_saturation=1.1
@@ -181,9 +163,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
 
-# GPS
-LOC_HIDL_VERSION := 4.0
-
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-qti \
@@ -219,15 +198,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     KeyHandler
 
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0.vendor \
-    android.hardware.keymaster@4.1.vendor
-
 PRODUCT_VENDOR_PROPERTIES += \
     ro.crypto.allow_encrypt_override=true \
     ro.crypto.volume.filenames_mode=aes-256-cts \
     ro.hardware.keystore_desede=true
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor \
+    android.hardware.keymaster@4.1.vendor
 
 # Netflix
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -242,14 +221,6 @@ TARGET_NFC_SKU := willow
 
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.se.type=HCE,UICC
-
-# Media
-PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0-impl \
-    android.hardware.media.omx@1.0-service
-
-RODUCT_PACKAGES += \
-    libstagefright_omx.vendor
 
 # Overlays
 PRODUCT_PACKAGES += \
@@ -284,10 +255,6 @@ PRODUCT_COPY_FILES += \
 TARGET_BOARD_PLATFORM := trinket
 TRINKET := trinket
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.2.vendor
-
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS := all
 
@@ -309,7 +276,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # SoC
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.soc.manufacturer=QTI \
     ro.soc.model=SM6125
 
 # Sensors
@@ -358,13 +324,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.data.iwlan.enable=true \
     ro.telephony.iwlan_operation_mode=legacy
-
-# ZRAM
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.zram.mark_idle_delay_mins=60 \
-    ro.zram.first_wb_delay_mins=1440 \
-    ro.zram.periodic_wb_delay_hours=24
-
-# Zygote
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.device_config.runtime_native.usap_pool_enabled=true
