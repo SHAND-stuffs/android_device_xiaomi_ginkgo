@@ -44,9 +44,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.bluetooth.bqr.event_mask=14 \
     persist.bluetooth.bqr.min_interval_ms=500
 
-PRODUCT_PRODUCT_PROPERTIES += \
-    bluetooth.device.class_of_device=90,2,12
-
 # Camera
 $(call inherit-product, vendor/miuicamera/config.mk)
 
@@ -162,11 +159,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 # FUSE passthrough
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl-qti \
-    android.hardware.health@2.1-service
 
 # Init
 PRODUCT_PACKAGES += \
