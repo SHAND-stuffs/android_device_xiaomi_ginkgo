@@ -6,8 +6,8 @@
 #
 
 BOARD_VENDOR := xiaomi
+
 DEVICE_PATH := device/xiaomi/ginkgo
-COMMON_PATH := device/qcom/common
 
 # Build
 BUILD_BROKEN_DUP_RULES := true
