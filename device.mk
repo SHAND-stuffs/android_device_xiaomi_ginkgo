@@ -290,6 +290,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.sensors.enable.rt_task=false \
     persist.vendor.sensors.support_direct_channel=false
 
+# Shipping API
+PRODUCT_SHIPPING_API_LEVEL := 28
+
 # Soong namespace
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
