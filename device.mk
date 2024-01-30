@@ -235,11 +235,6 @@ PRODUCT_PACKAGES += \
     GinkgoNoCutoutOverlay  \
     NotchBarKiller
 
-# PASR
-PRODUCT_VENDOR_PROPERTIES += \
-    vendor.power.pasr.enabled=true \
-    vendor.pasr.activemode.enabled=true
-
 # Perf
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
