@@ -99,6 +99,10 @@ PRODUCT_SYSTEM_PROPERTIES += \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera \
     persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera
 
+# Config Store
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # Display
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
